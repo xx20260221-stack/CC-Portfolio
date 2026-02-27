@@ -158,7 +158,7 @@ export default function Hero() {
             {t.hero.meetCC}
           </a>
           <a
-            href="https://github.com"
+            href="https://github.com/xx20260221-stack"
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 hover:scale-105"

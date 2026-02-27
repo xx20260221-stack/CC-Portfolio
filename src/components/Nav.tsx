@@ -73,7 +73,7 @@ export default function Nav() {
             className="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 hover:scale-105"
             style={{ background: 'var(--color-accent)', color: '#fff' }}
           >
-            ⭐ Star xx20260221-stack
+            {t.nav.star}
           </a>
         </div>
 
