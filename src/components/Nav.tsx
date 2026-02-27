@@ -67,13 +67,13 @@ export default function Nav() {
           </button>
 
           <a
-            href="https://github.com"
+            href="https://github.com/xx20260221-stack"
             target="_blank"
             rel="noopener noreferrer"
             className="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 hover:scale-105"
             style={{ background: 'var(--color-accent)', color: '#fff' }}
           >
-            {t.nav.star}
+            ⭐ Star xx20260221-stack
           </a>
         </div>
 

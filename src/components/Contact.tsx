@@ -65,7 +65,7 @@ export default function Contact() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://github.com"
+                href="https://github.com/xx20260221-stack"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:scale-105"
@@ -79,7 +79,7 @@ export default function Contact() {
                 {t.contact.starBtn}
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/xx20260221-stack"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:scale-105"
