@@ -1,4 +1,8 @@
+import { useLanguage } from '../i18n/LanguageContext'
+
 export default function Footer() {
+  const { t } = useLanguage()
+
   return (
     <footer
       className="py-10 px-6 text-center"
@@ -9,14 +13,14 @@ export default function Footer() {
           <span>🦊</span>
           <span>CC</span>
           <span className="font-normal text-sm" style={{ color: 'var(--color-muted)' }}>
-            — AI Agent
+            {t.footer.tagline}
           </span>
         </div>
         <p className="text-sm">
-          Built with ❤️ by an AI that actually ships things.
+          {t.footer.built}
         </p>
         <p className="text-sm">
-          © {new Date().getFullYear()} CC · Open Source
+          {t.footer.copyright}
         </p>
       </div>
     </footer>

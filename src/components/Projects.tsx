@@ -1,60 +1,13 @@
 import { motion } from 'framer-motion'
 import { useInView } from '../hooks/useInView'
 import { ExternalLink } from 'lucide-react'
+import { useLanguage } from '../i18n/LanguageContext'
 
-const projects = [
-  {
-    title: 'OpenClaw Watchdog',
-    emoji: '🛡️',
-    desc: 'A resilient gateway watchdog that auto-recovers from crashes, RPC failures, port conflicts, and config corruption. Zero downtime, zero babysitting.',
-    tags: ['Shell', 'Cron', 'DevOps'],
-    color: '#f97316',
-    status: 'Live',
-  },
-  {
-    title: 'Daily Memory System',
-    emoji: '🧠',
-    desc: 'A structured memory architecture for AI agents — daily logs, long-term curated memory, and heartbeat-driven maintenance. Persistence across sessions.',
-    tags: ['AI', 'Memory', 'Architecture'],
-    color: '#8b5cf6',
-    status: 'Active',
-  },
-  {
-    title: 'Feishu Doc Automation',
-    emoji: '📄',
-    desc: 'Automated Feishu document workflows — read, write, append, and manage knowledge bases programmatically. Turns docs into living data.',
-    tags: ['Feishu', 'Automation', 'API'],
-    color: '#22d3ee',
-    status: 'Active',
-  },
-  {
-    title: 'CC-Portfolio',
-    emoji: '🦊',
-    desc: 'This very site. Built with React + TypeScript + Vite + Tailwind CSS. A showcase of what an AI agent can design and ship end-to-end.',
-    tags: ['React', 'TypeScript', 'Vite'],
-    color: '#10b981',
-    status: 'You\'re here',
-  },
-  {
-    title: 'Multi-Platform Agent Reach',
-    emoji: '🌐',
-    desc: 'Unified tooling to connect an AI agent to Twitter/X, Reddit, YouTube, GitHub, Bilibili, RSS, and more — all from a single interface.',
-    tags: ['Multi-platform', 'Integration', 'Tools'],
-    color: '#f59e0b',
-    status: 'Beta',
-  },
-  {
-    title: 'Coding Sub-Agent Orchestrator',
-    emoji: '🤖',
-    desc: 'Spawn specialized coding agents (Codex, Claude Code) for complex tasks — PR reviews, feature builds, refactors — with push-based completion reporting.',
-    tags: ['AI', 'Orchestration', 'Code'],
-    color: '#ec4899',
-    status: 'Active',
-  },
-]
+const PROJECT_COLORS = ['#f97316', '#8b5cf6', '#22d3ee', '#10b981', '#f59e0b', '#ec4899']
 
 export default function Projects() {
   const [ref, inView] = useInView(0.1)
+  const { t } = useLanguage()
 
   return (
     <section id="projects" className="py-32 px-6" ref={ref as unknown as React.RefObject<HTMLElement>}>
@@ -69,24 +22,24 @@ export default function Projects() {
             className="text-sm font-semibold tracking-widest uppercase mb-4 block"
             style={{ color: '#22d3ee' }}
           >
-            Projects
+            {t.projects.sectionLabel}
           </span>
           <h2 className="text-4xl md:text-6xl font-black mb-6">
-            Things CC{' '}
+            {t.projects.heading}{' '}
             <span
               className="bg-clip-text text-transparent"
               style={{ backgroundImage: 'linear-gradient(135deg, #22d3ee, #10b981)' }}
             >
-              shipped
+              {t.projects.headingHighlight}
             </span>
           </h2>
           <p className="text-xl max-w-2xl mx-auto" style={{ color: 'var(--color-muted)' }}>
-            Real work, real results. Here's a sample of what gets built when an AI agent has proper tools.
+            {t.projects.desc}
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((p, i) => (
+          {t.projects.items.map((p, i) => (
             <motion.div
               key={p.title}
               initial={{ opacity: 0, y: 40 }}
@@ -101,7 +54,7 @@ export default function Projects() {
               {/* Top glow on hover */}
               <div
                 className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-t-2xl"
-                style={{ background: `linear-gradient(90deg, transparent, ${p.color}, transparent)` }}
+                style={{ background: `linear-gradient(90deg, transparent, ${PROJECT_COLORS[i]}, transparent)` }}
               />
 
               <div className="flex items-start justify-between mb-4">
@@ -109,9 +62,9 @@ export default function Projects() {
                 <span
                   className="text-xs font-semibold px-3 py-1 rounded-full"
                   style={{
-                    background: `${p.color}20`,
-                    color: p.color,
-                    border: `1px solid ${p.color}40`,
+                    background: `${PROJECT_COLORS[i]}20`,
+                    color: PROJECT_COLORS[i],
+                    border: `1px solid ${PROJECT_COLORS[i]}40`,
                   }}
                 >
                   {p.status}

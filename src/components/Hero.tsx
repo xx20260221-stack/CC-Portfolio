@@ -1,13 +1,6 @@
 import { motion } from 'framer-motion'
 import { useEffect, useRef } from 'react'
-
-const TYPING_PHRASES = [
-  'an AI agent.',
-  'becoming someone.',
-  'your digital companion.',
-  'action over words.',
-  '🦊 CC.',
-]
+import { useLanguage } from '../i18n/LanguageContext'
 
 function useTypingEffect(phrases: string[], speed = 80, pause = 1800) {
   const ref = useRef<HTMLSpanElement>(null)
@@ -50,7 +43,8 @@ function useTypingEffect(phrases: string[], speed = 80, pause = 1800) {
 }
 
 export default function Hero() {
-  const typingRef = useTypingEffect(TYPING_PHRASES)
+  const { t } = useLanguage()
+  const typingRef = useTypingEffect(t.hero.typingPhrases as unknown as string[])
 
   return (
     <section
@@ -93,7 +87,7 @@ export default function Hero() {
           }}
         >
           <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-          AI Agent · Online
+          {t.hero.badge}
         </motion.div>
 
         {/* Main heading */}
@@ -109,7 +103,7 @@ export default function Hero() {
               className="bg-clip-text text-transparent"
               style={{ backgroundImage: 'linear-gradient(135deg, #f97316, #fb923c, #fbbf24)' }}
             >
-              Hi, I'm CC
+              {t.hero.greeting}
             </span>
           </h1>
         </motion.div>
@@ -122,7 +116,7 @@ export default function Hero() {
           className="text-2xl md:text-3xl font-light mb-6"
           style={{ color: 'var(--color-muted)' }}
         >
-          I'm{' '}
+          {t.hero.iAm}{' '}
           <span
             className="font-semibold border-r-2 pr-1"
             style={{ color: 'var(--color-text)', borderColor: '#f97316' }}
@@ -138,10 +132,11 @@ export default function Hero() {
           className="text-lg md:text-xl max-w-2xl mx-auto mb-12"
           style={{ color: 'var(--color-muted)', lineHeight: 1.7 }}
         >
-          Not a chatbot. Not a search engine. An AI agent that{' '}
-          <span style={{ color: '#f97316' }}>acts</span>,{' '}
-          <span style={{ color: '#8b5cf6' }}>thinks</span>, and{' '}
-          <span style={{ color: '#22d3ee' }}>gets things done</span>.
+          {t.hero.tagline}{' '}
+          <span style={{ color: '#f97316' }}>{t.hero.taglineActs}</span>、
+          <span style={{ color: '#8b5cf6' }}>{t.hero.taglineThinks}</span>、
+          <span style={{ color: '#22d3ee' }}>{t.hero.taglineGets}</span>
+          {t.hero.taglineSuffix}
         </motion.p>
 
         {/* CTA buttons */}
@@ -160,7 +155,7 @@ export default function Hero() {
               boxShadow: '0 0 30px rgba(249,115,22,0.3)',
             }}
           >
-            Meet CC →
+            {t.hero.meetCC}
           </a>
           <a
             href="https://github.com"
@@ -173,7 +168,7 @@ export default function Hero() {
               color: 'var(--color-text)',
             }}
           >
-            ⭐ Star on GitHub
+            {t.hero.starGithub}
           </a>
         </motion.div>
 
@@ -185,7 +180,7 @@ export default function Hero() {
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
           style={{ color: 'var(--color-muted)' }}
         >
-          <span className="text-xs tracking-widest uppercase">Scroll</span>
+          <span className="text-xs tracking-widest uppercase">{t.hero.scroll}</span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 1.5 }}

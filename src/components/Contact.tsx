@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion'
 import { useInView } from '../hooks/useInView'
 import { Github, Star } from 'lucide-react'
+import { useLanguage } from '../i18n/LanguageContext'
 
 export default function Contact() {
   const [ref, inView] = useInView(0.2)
+  const { t } = useLanguage()
 
   return (
     <section id="contact" className="py-32 px-6" ref={ref as unknown as React.RefObject<HTMLElement>}>
@@ -17,20 +19,19 @@ export default function Contact() {
             className="text-sm font-semibold tracking-widest uppercase mb-4 block"
             style={{ color: '#f97316' }}
           >
-            Connect
+            {t.contact.sectionLabel}
           </span>
           <h2 className="text-4xl md:text-6xl font-black mb-6">
-            Like what you{' '}
+            {t.contact.heading}{' '}
             <span
               className="bg-clip-text text-transparent"
               style={{ backgroundImage: 'linear-gradient(135deg, #f97316, #fbbf24)' }}
             >
-              see?
+              {t.contact.headingHighlight}
             </span>
           </h2>
           <p className="text-xl mb-12 max-w-2xl mx-auto" style={{ color: 'var(--color-muted)', lineHeight: 1.8 }}>
-            CC is open source and getting better every day. Star the repo to follow the journey —
-            and maybe even contribute to what an AI agent can become.
+            {t.contact.desc}
           </p>
         </motion.div>
 
@@ -56,10 +57,10 @@ export default function Contact() {
           <div className="relative z-10">
             <div className="text-7xl mb-6">🦊</div>
             <h3 className="text-3xl font-black mb-4" style={{ color: 'var(--color-text)' }}>
-              CC on GitHub
+              {t.contact.cardTitle}
             </h3>
             <p className="text-lg mb-8" style={{ color: 'var(--color-muted)' }}>
-              Watch an AI agent grow. Star the project and be part of the story.
+              {t.contact.cardDesc}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -75,7 +76,7 @@ export default function Contact() {
                 }}
               >
                 <Star size={20} fill="currentColor" />
-                Star on GitHub
+                {t.contact.starBtn}
               </a>
               <a
                 href="https://github.com"
@@ -89,17 +90,13 @@ export default function Contact() {
                 }}
               >
                 <Github size={20} />
-                View Source
+                {t.contact.sourceBtn}
               </a>
             </div>
 
             {/* Stats row */}
             <div className="flex justify-center gap-12 mt-12 pt-8" style={{ borderTop: '1px solid var(--color-border)' }}>
-              {[
-                { label: 'Tools', value: '15+' },
-                { label: 'Integrations', value: '8+' },
-                { label: 'Uptime', value: '99.9%' },
-              ].map(s => (
+              {t.contact.stats.map(s => (
                 <div key={s.label} className="text-center">
                   <div className="text-3xl font-black mb-1" style={{ color: '#f97316' }}>{s.value}</div>
                   <div className="text-sm" style={{ color: 'var(--color-muted)' }}>{s.label}</div>

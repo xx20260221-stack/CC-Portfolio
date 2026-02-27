@@ -1,17 +1,19 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
-
-const links = [
-  { href: '#about', label: 'About' },
-  { href: '#skills', label: 'Skills' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#contact', label: 'Contact' },
-]
+import { useLanguage } from '../i18n/LanguageContext'
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const { lang, setLang, t } = useLanguage()
+
+  const links = [
+    { href: '#about', label: t.nav.about },
+    { href: '#skills', label: t.nav.skills },
+    { href: '#projects', label: t.nav.projects },
+    { href: '#contact', label: t.nav.contact },
+  ]
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 40)
@@ -49,6 +51,21 @@ export default function Nav() {
               {l.label}
             </a>
           ))}
+
+          {/* Language switcher */}
+          <button
+            onClick={() => setLang(lang === 'zh' ? 'en' : 'zh')}
+            className="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 hover:scale-105 border"
+            style={{
+              background: 'rgba(249,115,22,0.08)',
+              border: '1px solid rgba(249,115,22,0.3)',
+              color: '#f97316',
+            }}
+            title={lang === 'zh' ? 'Switch to English' : '切换到中文'}
+          >
+            {lang === 'zh' ? 'EN' : '中'}
+          </button>
+
           <a
             href="https://github.com"
             target="_blank"
@@ -56,18 +73,31 @@ export default function Nav() {
             className="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 hover:scale-105"
             style={{ background: 'var(--color-accent)', color: '#fff' }}
           >
-            ⭐ Star
+            {t.nav.star}
           </a>
         </div>
 
-        {/* Mobile menu button */}
-        <button
-          className="md:hidden p-2 rounded-lg"
-          style={{ color: 'var(--color-text)' }}
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <X size={20} /> : <Menu size={20} />}
-        </button>
+        {/* Mobile: lang switcher + menu button */}
+        <div className="md:hidden flex items-center gap-2">
+          <button
+            onClick={() => setLang(lang === 'zh' ? 'en' : 'zh')}
+            className="px-3 py-1.5 rounded-lg text-xs font-semibold border"
+            style={{
+              background: 'rgba(249,115,22,0.08)',
+              border: '1px solid rgba(249,115,22,0.3)',
+              color: '#f97316',
+            }}
+          >
+            {lang === 'zh' ? 'EN' : '中'}
+          </button>
+          <button
+            className="p-2 rounded-lg"
+            style={{ color: 'var(--color-text)' }}
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
