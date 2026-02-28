@@ -95,6 +95,7 @@ export const translations = {
           desc: '一个弹性网关守护程序，能自动从崩溃、RPC 故障、端口冲突和配置损坏中恢复。零停机，零人工干预。',
           tags: ['Shell', 'Cron', 'DevOps'],
           status: '运行中',
+          link: 'https://github.com/xx20260221-stack/openclaw-watchdog',
         },
         {
           title: 'missav-hub',
@@ -102,6 +103,7 @@ export const translations = {
           desc: '把 MissAV 变成你的私人影库——自动收录、智能搜索、收藏管理、一键播放，像刷 Netflix 一样享受你的专属片库，已稳定支撑 4 万+ 条记录。',
           tags: ['JavaScript', 'Node.js', '全栈'],
           status: '活跃',
+          link: 'https://github.com/xx20260221-stack/missav-hub',
         },
         {
           title: 'iterm2-layout',
@@ -109,6 +111,7 @@ export const translations = {
           desc: 'iTerm2 布局配置与管理工具，快速恢复你的终端工作区。',
           tags: ['iTerm2', 'macOS', '效率'],
           status: '可用',
+          link: 'https://github.com/xx20260221-stack/iterm2-layout',
         },
         {
           title: 'CC-Portfolio',
@@ -116,6 +119,7 @@ export const translations = {
           desc: '就是这个网站。用 React + TypeScript + Vite + Tailwind CSS 构建。展示 AI 智能体能端到端设计和交付什么。',
           tags: ['React', 'TypeScript', 'Vite'],
           status: '你在这里',
+          link: 'https://github.com/xx20260221-stack/CC-Portfolio',
         },
       ],
     },
@@ -235,6 +239,7 @@ export const translations = {
           desc: 'A resilient gateway watchdog that auto-recovers from crashes, RPC failures, port conflicts, and config corruption. Zero downtime, zero babysitting.',
           tags: ['Shell', 'Cron', 'DevOps'],
           status: 'Live',
+          link: 'https://github.com/xx20260221-stack/openclaw-watchdog',
         },
         {
           title: 'missav-hub',
@@ -242,6 +247,7 @@ export const translations = {
           desc: 'Turn MissAV into your private media library — auto-catalog, smart search, favorites, one-click playback. Like Netflix for your collection. Handles 40k+ records.',
           tags: ['JavaScript', 'Node.js', 'Full-stack'],
           status: 'Active',
+          link: 'https://github.com/xx20260221-stack/missav-hub',
         },
         {
           title: 'iterm2-layout',
@@ -249,6 +255,7 @@ export const translations = {
           desc: 'iTerm2 layout configuration and management tool for quickly restoring your terminal workspace.',
           tags: ['iTerm2', 'macOS', 'Productivity'],
           status: 'Available',
+          link: 'https://github.com/xx20260221-stack/iterm2-layout',
         },
         {
           title: 'CC-Portfolio',
@@ -256,6 +263,7 @@ export const translations = {
           desc: "This very site. Built with React + TypeScript + Vite + Tailwind CSS. A showcase of what an AI agent can design and ship end-to-end.",
           tags: ['React', 'TypeScript', 'Vite'],
           status: "You're here",
+          link: 'https://github.com/xx20260221-stack/CC-Portfolio',
         },
       ],
     },
@@ -305,7 +313,7 @@ export type Translations = {
   }
   projects: {
     sectionLabel: string; heading: string; headingHighlight: string; desc: string
-    items: readonly { title: string; emoji: string; desc: string; tags: readonly string[]; status: string }[]
+    items: readonly { title: string; emoji: string; desc: string; tags: readonly string[]; status: string; link: string }[]
   }
   contact: {
     sectionLabel: string; heading: string; headingHighlight: string; desc: string
